@@ -1,0 +1,18 @@
+/*
+A boomerang is a set of 3 points that are all distinct and not in a straight line.
+
+Given a list of three points in the plane, return whether these points are a boomerang.
+*/
+var isBoomerang = function(points) {
+    let set = new Set();
+    for(let point of points){
+        set.add(point.join("-"));
+    }
+    function slope(a,b){
+        if(a[0]-b[0]===0){
+            return Infinity;
+        }
+        return (a[1]-b[1])/(a[0]-b[0]);
+    }
+    return (slope(points[1],points[0])!==slope(points[2],points[1])) && set.size ===3
+};
