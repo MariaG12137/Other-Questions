@@ -1,0 +1,13 @@
+/*
+Given an integer n, return the number of trailing zeroes in n!.
+
+Follow up: Could you write a solution that works in logarithmic time complexity?
+*/
+var trailingZeroes = function(n) {
+    let zeroCount = 0;
+    while(n>=5){
+        n = Math.floor(n/5)
+        zeroCount = zeroCount + n;
+    }
+    return zeroCount
+};
